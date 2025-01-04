@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 // config
 const app = express();
 const port = process.env.PORT;
+const mongoUri = process.env.MONGO_URI;
 
 // cors
 const corsOptions = {
@@ -29,9 +30,7 @@ app.get("/api", (req, res) => {
 
 // database & server connection
 mongoose
-  .connect(
-    "mongodb+srv://streetdevbusiness:aXna2CqL3LbTsb21@cluster0.wxfr3.mongodb.net/Node-API?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(mongoUri)
   .then(() => {
     console.log("Connected to database!");
     app.listen(port, () => console.log(`Server is running on port ${port}`));
