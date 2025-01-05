@@ -19,14 +19,9 @@ import LandingPage from "./pages/LandingPage";
 import ListPage from "./pages/ListPage";
 import TaskPage from "./pages/TaskPage";
 
+// request functions
+
 function App() {
-  // const fetchAPI = async () => {
-  //   const res = await axios.get("http://localhost:5000/api");
-  //   setText(res.data.text);
-  // };
-  // useEffect(() => {
-  //   fetchAPI();
-  // }, []);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
