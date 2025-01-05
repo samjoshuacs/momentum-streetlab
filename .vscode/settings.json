@@ -7,7 +7,7 @@
   "liveSassCompile.settings.useNewCompiler": false,
   "liveSassCompile.settings.formats": [
     {
-      "format": "expanded",
+      "format": "compressed",
       "extensionName": ".css",
       "savePath": "/client/src/assets/css",
       "savePathReplacementPairs": null

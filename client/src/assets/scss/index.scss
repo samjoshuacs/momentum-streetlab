@@ -1,0 +1,49 @@
+@import "config";
+@import "utilities";
+
+// partials
+@import "../../components/landing/LandingMedia/LandingMedia";
+@import "../../components/landing/LoginForm/LoginForm";
+@import "../../components/landing/RegistrationForm/RegistrationForm";
+@import "../../components/landing/ResetForm/ResetForm";
+
+// global
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $popReg;
+}
+a {
+  text-decoration: none;
+  color: $lblack;
+}
+
+body {
+  background-color: $lblack;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+label {
+  user-select: none;
+}
+
+// landing layout
+%landing {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 2rem;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 0.5rem;
+    @media (min-width: 767px) {
+      padding: 1rem;
+    }
+  }
+}
+.landing-layout {
+  @extend %landing;
+}

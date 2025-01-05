@@ -1,0 +1,11 @@
+#reset-form {
+  a {
+    font-size: 0.75rem;
+    font-weight: bold;
+    @extend %smooth;
+
+    &:hover {
+      color: $lred;
+    }
+  }
+}

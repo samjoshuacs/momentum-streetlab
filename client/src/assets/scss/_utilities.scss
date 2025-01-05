@@ -1,0 +1,341 @@
+// transitions
+%smooth {
+  transition: ease-in-out 150ms;
+}
+
+// inputs
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.75rem;
+}
+.form-control {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: gray 0px 0px 2px 1px;
+  font-size: 0.85rem;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+.form-errors {
+  color: $lred;
+  font-size: 0.75rem;
+}
+
+// checkboxes
+.checkbox {
+  width: 100%;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+
+  label {
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+// buttons
+%btn {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: black;
+  @extend %smooth;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(white, 10%);
+  }
+}
+.btn {
+  @extend %btn;
+}
+.btn-black {
+  background-color: $lblack;
+  color: white;
+  &:hover {
+    background-color: lighten($lblack, 15%);
+  }
+}
+$spaceamount: (1, 2, 3, 4, 5);
+@each $space in $spaceamount {
+  .my-#{$space} {
+    margin: #{$space * 10}px 0;
+  }
+  .mx-#{$space} {
+    margin: 0 #{$space * 10}px;
+  }
+  .mt-#{$space} {
+    margin-top: #{$space * 10}px;
+  }
+  .mb-#{$space} {
+    margin-bottom: #{$space * 10}px;
+  }
+  .ms-#{$space} {
+    margin-left: #{$space * 10}px;
+  }
+  .me-#{$space} {
+    @extend %btn;
+    margin-right: #{$space * 10}px;
+  }
+}
+
+// Global Container
+$container-width: 100%;
+$container-max-width: 1140px; // Adjust as needed
+$container-padding: 15px;
+
+.container {
+  width: $container-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+  max-width: $container-max-width;
+}
+
+// Row
+$row-gutter: 15px;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$row-gutter;
+  margin-right: -$row-gutter;
+
+  // Clearfix for row
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Column (Col 1-12)
+$col-count: 12;
+$col-width: 100% / $col-count; // Default to full-width for col-1
+
+@for $i from 1 through $col-count {
+  .col-#{$i} {
+    flex: 0 0 #{($i * $col-width)};
+    max-width: #{($i * $col-width)};
+    padding-left: $row-gutter;
+    padding-right: $row-gutter;
+  }
+}
+
+// Media Queries for Responsiveness
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+@media (max-width: $breakpoint-sm) {
+  .col-sm-1 {
+    width: 8.33333%;
+  }
+  .col-sm-2 {
+    width: 16.66667%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33333%;
+  }
+  .col-sm-5 {
+    width: 41.66667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.33333%;
+  }
+  .col-sm-8 {
+    width: 66.66667%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33333%;
+  }
+  .col-sm-11 {
+    width: 91.66667%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .col-md-1 {
+    width: 8.33333%;
+  }
+  .col-md-2 {
+    width: 16.66667%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.33333%;
+  }
+  .col-md-5 {
+    width: 41.66667%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.33333%;
+  }
+  .col-md-8 {
+    width: 66.66667%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-10 {
+    width: 83.33333%;
+  }
+  .col-md-11 {
+    width: 91.66667%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .col-lg-1 {
+    width: 8.33333%;
+  }
+  .col-lg-2 {
+    width: 16.66667%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33333%;
+  }
+  .col-lg-5 {
+    width: 41.66667%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33333%;
+  }
+  .col-lg-8 {
+    width: 66.66667%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33333%;
+  }
+  .col-lg-11 {
+    width: 91.66667%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .col-xl-1 {
+    width: 8.33333%;
+  }
+  .col-xl-2 {
+    width: 16.66667%;
+  }
+  .col-xl-3 {
+    width: 25%;
+  }
+  .col-xl-4 {
+    width: 33.33333%;
+  }
+  .col-xl-5 {
+    width: 41.66667%;
+  }
+  .col-xl-6 {
+    width: 50%;
+  }
+  .col-xl-7 {
+    width: 58.33333%;
+  }
+  .col-xl-8 {
+    width: 66.66667%;
+  }
+  .col-xl-9 {
+    width: 75%;
+  }
+  .col-xl-10 {
+    width: 83.33333%;
+  }
+  .col-xl-11 {
+    width: 91.66667%;
+  }
+  .col-xl-12 {
+    width: 100%;
+  }
+}
+
+// Typography
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+// Spacing
+.f {
+  display: flex;
+}
+.fc {
+  flex-direction: column;
+}
+.fr {
+  flex-direction: row;
+}
+.jc {
+  justify-content: center;
+}
+.je {
+  justify-content: end;
+}
+.ac {
+  align-items: center;
+}
+.ae {
+  align-items: end;
+}
+$gapspaces: (1, 2, 3, 4, 5);
+@each $gap in $gapspaces {
+  .g-#{$gap} {
+    gap: #{$gap * 10}px;
+  }
+}
