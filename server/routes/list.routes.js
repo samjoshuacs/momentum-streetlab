@@ -10,12 +10,21 @@ import {
   deleteList,
 } from "../controllers/list.controller.js";
 
-const listRoutes = express.Router();
+// routes
+import taskRoutes from "./task.routes.js";
 
-listRoutes.get("/:id", getLists);
-listRoutes.post("/:id", addList);
-listRoutes.get("/:id/target/:lid", getList);
-listRoutes.put("/:id/target/:lid", updateList);
-listRoutes.delete("/:id/target/:lid", deleteList);
+// middlewares
+import protect from "../middlewares/authMiddleware.js";
+
+const listRoutes = express.Router({ mergeParams: true });
+
+listRoutes.get("/", protect, getLists);
+listRoutes.post("/", protect, addList);
+listRoutes.get("/:listId", protect, getList);
+listRoutes.put("/:listId", protect, updateList);
+listRoutes.delete("/:listId", protect, deleteList);
+
+// task routes
+listRoutes.use("/:listId/tasks", taskRoutes);
 
 export default listRoutes;
