@@ -2,7 +2,7 @@
 import express from "express";
 import cors from "cors";
 import taskRouter from "./routes/task.routes.js";
-import projectRouter from "./routes/project.routes.js";
+import listRoutes from "./routes/list.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import mongoose from "mongoose";
 import errorHandler from "./middlewares/errorMiddleware.js";
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use("/api/users", userRoutes);
-app.use("/api/projects", projectRouter);
+app.use("/api/lists", listRoutes);
 app.use("/api/tasks", taskRouter);
 
 // global errors
